@@ -102,7 +102,7 @@ extension ListView: UITableViewDelegate {
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        // STORY 3: Pass the selected restaurant to DetailViewController.
+        delegate?.didTapRestaurant(restaurant: restaurants[indexPath.row])
         
     }
 }
