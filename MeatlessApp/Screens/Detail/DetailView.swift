@@ -116,7 +116,7 @@ extension DetailView: UITableViewDataSource {
         
         let headerView = HeaderView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: DetailView.headerHeight))
         
-        // STORY 4: Configure HeaderView with the Restaurant instance data.
+        headerView.updateView(restaurant: restaurant)
 
         return headerView
     }
