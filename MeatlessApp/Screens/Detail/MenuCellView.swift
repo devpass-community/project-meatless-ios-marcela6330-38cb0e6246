@@ -3,6 +3,7 @@ import UIKit
 // STORY 5: Implement minusButton and plusButton actions. Whenever they're pressed, quantityLabel must be updated accordingly.
 
 class MenuCellView: UITableViewCell {
+    var quantity = 0
     
    private var mainStackView: UIStackView = {
        let stack = UIStackView(frame: .zero)
@@ -62,6 +63,7 @@ class MenuCellView: UITableViewCell {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setImage(UIImage(named: "icon-minus"), for: .normal)
+        button.addTarget(self, action: #selector(buttonMinusPressed), for: .touchUpInside)
         return button
     }()
     
@@ -70,6 +72,7 @@ class MenuCellView: UITableViewCell {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setImage(UIImage(named: "icon-plus"), for: .normal)
+        button.addTarget(self, action: #selector(buttonPlusPressed), for: .touchUpInside)
         return button
     }()
     
@@ -140,5 +143,23 @@ private extension MenuCellView {
             labelsStackView.topAnchor.constraint(equalTo: mainStackView.topAnchor, constant: 16),
             labelsStackView.bottomAnchor.constraint(equalTo: mainStackView.bottomAnchor, constant: -16)
         ])
+    }
+    
+    @objc func buttonMinusPressed() {
+        if quantityLabel.text == "0" {
+            quantity = 0
+        } else {
+            quantity-=1
+        }
+        quantityLabel.text = String(quantity)
+    }
+    
+    @objc func buttonPlusPressed() {
+        if quantityLabel.text == "99" {
+            quantity = 99
+        } else {
+            quantity+=1
+        }
+        quantityLabel.text = String(quantity)
     }
 }
