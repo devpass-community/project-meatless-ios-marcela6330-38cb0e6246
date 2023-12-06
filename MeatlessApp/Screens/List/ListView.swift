@@ -88,6 +88,7 @@ extension ListView: UITableViewDataSource {
 
         cell.updateView(restaurant: restaurants[indexPath.row])
 
+        
         return cell
     }
 }
