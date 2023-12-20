@@ -68,7 +68,6 @@ class MenuCellView: UITableViewCell {
     }()
     
     lazy var plusButton: UIButton = {
-        
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setImage(UIImage(named: "icon-plus"), for: .normal)
